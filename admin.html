@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - NERD STORE</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .admin-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    .admin-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .total-ventas {
+      font-size: 28px;
+      color: #7c3aed;
+      font-weight: bold;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(17, 17, 17, 0.9);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid #333;
+    }
+    th {
+      background: #7c3aed;
+      color: white;
+    }
+    .btn-volver {
+      background: linear-gradient(90deg, #7c3aed, #a855f7);
+      padding: 14px 30px;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin-right: 15px;
+    }
+    .btn-limpiar {
+      background: #ef4444;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .empty-state {
+      text-align: center;
+      padding: 80px 20px;
+      color: #888;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <div class="logo" onclick="window.location.href='index.html'">⚡ NERD STORE</div>
+      <div class="header-icons" style="margin-left:auto;">
+        <button onclick="goToLogin()" class="icon-btn">👤</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="admin-container">
+    <div class="admin-header">
+      <h1>Panel de Administrador</h1>
+      <p class="total-ventas">Total de ventas: $<span id="totalVentas">0</span></p>
+    </div>
+
+    <table id="ordersTable">
+      <thead>
+        <tr>
+          <th>Orden</th>
+          <th>Cliente</th>
+          <th>Fecha</th>
+          <th>Productos</th>
+          <th>Total</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="ordersBody">
+        <!-- Las órdenes se cargan aquí con JavaScript -->
+      </tbody>
+    </table>
+
+    <div id="emptyState" class="empty-state">
+      <p>Aún no hay órdenes registradas</p>
+    </div>
+
+    <div style="margin-top: 40px; text-align: center;">
+      <button onclick="window.location.href='index.html'" class="btn-volver">Volver a la Tienda</button>
+      <button onclick="clearAllOrders()" class="btn-limpiar">Limpiar Todas las Órdenes</button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/toast.js"></script>
+
+  <script>
+    // Cargar órdenes al iniciar
+    document.addEventListener("DOMContentLoaded", () => {
+      if (typeof loadOrders === "function") loadOrders();
+      updateTotalSales();
+    });
+  </script>
+</body>
+</html>

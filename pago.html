@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pago con Tarjeta - NERD STORE</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <h1 style="text-align:center; margin-top:60px;">Pago con Tarjeta</h1>
+
+  <div style="max-width:520px; margin:40px auto; background:#111; padding:40px; border-radius:15px;">
+
+    <input id="cardNumber" 
+           placeholder="Número de tarjeta (1234 5678 9012 3456)" 
+           maxlength="19" 
+           style="width:100%; padding:14px; margin:12px 0; border-radius:10px; border:none; background:#222; color:#fff; font-size:16px;">
+
+    <input id="cardName" 
+           placeholder="Nombre completo en la tarjeta" 
+           style="width:100%; padding:14px; margin:12px 0; border-radius:10px; border:none; background:#222; color:#fff; font-size:16px;">
+
+    <div style="display:flex; gap:15px;">
+      <input id="expiry" 
+             placeholder="Fecha de vencimiento (MM/AA)" 
+             maxlength="5" 
+             style="flex:1; padding:14px; margin:12px 0; border-radius:10px; border:none; background:#222; color:#fff; font-size:16px;">
+
+      <input id="cvv" 
+             placeholder="CVV" 
+             maxlength="4" 
+             style="flex:1; padding:14px; margin:12px 0; border-radius:10px; border:none; background:#222; color:#fff; font-size:16px;">
+    </div>
+
+    <button class="action-btn" onclick="processPayment()" style="width:100%; margin-top:30px; padding:16px; font-size:18px;">
+      Finalizar Compra
+    </button>
+
+    <p style="text-align:center; margin-top:20px; color:#aaa; font-size:14px;">
+      🔒 Pago seguro • Encriptado
+    </p>
+  </div>
+
+  <script src="js/pago.js"></script>
+  <script src="js/toast.js"></script>
+</body>
+</html>

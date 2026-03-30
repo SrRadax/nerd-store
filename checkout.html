@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datos de Envío - NERD STORE</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .checkout-container {
+      max-width: 600px;
+      margin: 60px auto;
+      padding: 40px;
+      background: rgba(17, 17, 17, 0.95);
+      border-radius: 20px;
+      border: 1px solid rgba(124, 58, 237, 0.3);
+    }
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .form input {
+      padding: 16px;
+      border-radius: 12px;
+      border: none;
+      background: #222;
+      color: white;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <div class="logo" onclick="window.location.href='index.html'">⚡ NERD STORE</div>
+    </div>
+  </header>
+
+  <div class="checkout-container">
+    <h1 style="text-align:center; margin-bottom:30px;">Datos de Envío</h1>
+
+    <div class="form">
+      <input id="nombre" placeholder="Nombre completo" required>
+      <input id="apellido" placeholder="Apellido" required>
+      <input id="direccion" placeholder="Dirección completa" required>
+      <input id="ciudad" placeholder="Ciudad / Localidad" required>
+      <input id="telefono" placeholder="Teléfono de contacto" required>
+
+      <button onclick="continueToPayment()" class="action-btn" style="margin-top:25px; padding:16px; font-size:18px;">
+        Continuar al Pago →
+      </button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/toast.js"></script>
+
+  <script>
+    function continueToPayment() {
+      const nombre = document.getElementById("nombre").value.trim();
+      const apellido = document.getElementById("apellido").value.trim();
+      const direccion = document.getElementById("direccion").value.trim();
+      const ciudad = document.getElementById("ciudad").value.trim();
+      const telefono = document.getElementById("telefono").value.trim();
+
+      if (!nombre || !apellido || !direccion || !ciudad || !telefono) {
+        showToast("Por favor completa todos los campos", "error");
+        return;
+      }
+
+      const orderData = {
+        nombre: nombre,
+        apellido: apellido,
+        direccion: direccion,
+        ciudad: ciudad,
+        telefono: telefono,
+        fecha: new Date().toLocaleDateString('es-AR')
+      };
+
+      localStorage.setItem("orderData", JSON.stringify(orderData));
+
+      showToast("Datos guardados correctamente", "success");
+
+      setTimeout(() => {
+        window.location.href = "pago.html";
+      }, 1200);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NERD STORE</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- HEADER NUEVO Y LIMPIO -->
+  <header>
+    <div class="header-top">
+      <div class="logo" onclick="window.location.href='index.html'">
+        ⚡ NERD STORE
+      </div>
+
+      <div class="search-container">
+        <input type="text" id="search" placeholder="Buscar productos..." class="search-input">
+      </div>
+
+      <div class="header-icons">
+        <button onclick="toggleTheme()" class="icon-btn">🌙</button>
+        <button onclick="goToLogin()" class="icon-btn">👤</button>
+        <button onclick="goCart()" class="icon-btn cart-icon">
+          🛒 <span id="count" class="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="category-nav">
+      <button onclick="filter('all')" class="nav-btn active">Todo</button>
+      <button onclick="filter('gamer')" class="nav-btn">PC Gamers</button>
+      <button onclick="filter('oficina')" class="nav-btn">PC Oficina</button>
+      <button onclick="filter('componentes')" class="nav-btn">Componentes</button>
+      <button onclick="window.location.href='empresa.html'" class="nav-btn">Empresas</button>
+      <button onclick="goToAdmin()" class="nav-btn">Admin</button>
+    </nav>
+  </header>
+
+  <!-- Contenido principal -->
+  <div class="container" id="products"></div>
+
+    <!-- Contenido principal -->
+  <div class="container" id="products"></div>
+
+  <!-- FOOTER PROFESIONAL -->
+  <footer style="background: #0a0a0a; padding: 70px 20px 40px; margin-top: 100px; border-top: 1px solid #222;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 50px; justify-content: space-between;">
+
+      <!-- Columna 1: Logo y descripción -->
+      <div style="flex: 1; min-width: 280px;">
+        <div style="font-size: 28px; font-weight: bold; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+          ⚡ NERD STORE
+        </div>
+        <p style="color: #aaa; line-height: 1.7; max-width: 340px;">
+          Tienda online especializada en PCs gamers, componentes y tecnología de alto rendimiento. 
+          Calidad y rendimiento al mejor precio.
+        </p>
+      </div>
+
+      <!-- Columna 2: Productos -->
+      <div>
+        <h4 style="color: white; margin-bottom: 18px; font-size: 16px;">PRODUCTOS</h4>
+        <p style="color: #aaa; line-height: 2.1;">
+          PC Gamer<br>
+          PC Oficina<br>
+          Componentes<br>
+          Monitores Gamer<br>
+          Laptops
+        </p>
+      </div>
+
+      <!-- Columna 3: Soporte -->
+      <div>
+        <h4 style="color: white; margin-bottom: 18px; font-size: 16px;">SOPORTE</h4>
+        <p style="color: #aaa; line-height: 2.1;">
+          Garantías<br>
+          Preguntas Frecuentes<br>
+          Términos y Condiciones<br>
+          Blog
+        </p>
+      </div>
+
+      <!-- Columna 4: Contacto -->
+      <div>
+        <h4 style="color: white; margin-bottom: 18px; font-size: 16px;">CONTACTO</h4>
+        <p style="color: #aaa; line-height: 2.1;">
+          📍 Formosa, Argentina<br>
+          📞 +54 370 5281786<br>
+          ✉️ contacto@nerdstore.com.ar<br><br>
+          <span style="font-size: 14px;">Lun a Vie 10-19 hs | Sáb 10-16 hs</span>
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Línea final -->
+    <div style="text-align: center; margin-top: 80px; padding-top: 25px; border-top: 1px solid #222; color: #555; font-size: 14px;">
+      © 2026 NERD STORE - Todos los derechos reservados
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script src="js/toast.js"></script>
+</body>
+</html>

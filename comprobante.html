@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprobante de Compra - NERD STORE</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .comprobante-container {
+      max-width: 700px;
+      margin: 60px auto;
+      padding: 40px;
+      background: rgba(17, 17, 17, 0.95);
+      border-radius: 20px;
+      border: 2px solid #7c3aed;
+      text-align: center;
+      box-shadow: 0 0 40px rgba(124, 58, 237, 0.5);
+    }
+    .success-icon {
+      font-size: 80px;
+      margin-bottom: 20px;
+      color: #22c55e;
+    }
+    .order-number {
+      font-size: 22px;
+      color: #a5b4fc;
+      margin: 20px 0;
+    }
+    .products-list {
+      text-align: left;
+      margin: 30px 0;
+      padding: 20px;
+      background: rgba(0,0,0,0.4);
+      border-radius: 12px;
+      min-height: 120px;
+    }
+    .total-final {
+      font-size: 32px;
+      color: #7c3aed;
+      font-weight: bold;
+      margin: 30px 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <div class="logo" onclick="backToHome()">⚡ NERD STORE</div>
+    </div>
+  </header>
+
+  <div class="comprobante-container">
+    <div class="success-icon">✅</div>
+    <h1>¡Compra Realizada con Éxito!</h1>
+    <p class="order-number">Orden #<span id="orderNumber">000000</span></p>
+
+    <div class="products-list" id="productsList">
+      Cargando productos...
+    </div>
+
+    <div class="total-final">
+      Total pagado: $<span id="totalFinal">0</span>
+    </div>
+
+    <p style="color:#a5b4fc; margin:25px 0;">Gracias por comprar en NERD STORE ❤️</p>
+
+    <div style="margin-top:40px;">
+      <button onclick="window.print()" class="action-btn" style="margin:0 10px;">
+        🖨️ Imprimir Comprobante
+      </button>
+      <button onclick="backToHome()" class="action-btn" style="margin:0 10px;">
+        Volver a la Tienda
+      </button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/toast.js"></script>
+
+  <script>
+    function loadComprobante() {
+      const orderData = JSON.parse(localStorage.getItem("orderData")) || {};
+      let lastOrder = JSON.parse(localStorage.getItem("lastOrder")) || {};
+
+      // Número de orden
+      document.getElementById("orderNumber").textContent = 
+        "ORD-" + Math.floor(100000 + Math.random() * 900000);
+
+      // Productos
+      const container = document.getElementById("productsList");
+      let html = "";
+      let total = 0;
+
+      // Intentamos obtener los productos guardados
+      let items = lastOrder.items || JSON.parse(localStorage.getItem("cart")) || [];
+
+      if (items && items.length > 0) {
+        items.forEach(item => {
+          const qty = item.quantity || 1;
+          const subtotal = (item.price || 0) * qty;
+          total += subtotal;
+
+          html += `
+            <div style="display:flex; justify-content:space-between; margin:8px 0; padding:8px 0; border-bottom:1px solid #333;">
+              <span>${item.name} × ${qty}</span>
+              <span>$${subtotal}</span>
+            </div>
+          `;
+        });
+      } else {
+        html = "<p>No hay productos en esta orden.</p>";
+      }
+
+      container.innerHTML = html;
+      document.getElementById("totalFinal").innerText = total;
+    }
+
+    function backToHome() {
+      localStorage.removeItem("lastOrder");
+      localStorage.removeItem("cart");
+      localStorage.removeItem("orderData");
+      window.location.href = "index.html";
+    }
+
+    // Cargar automáticamente
+    window.onload = loadComprobante;
+  </script>
+</body>
+</html>

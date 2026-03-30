@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Carrito - NERD STORE</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .cart-page {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      min-height: 70vh;
+    }
+
+    .cart-content {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .cart-items {
+      flex: 2;
+      min-width: 500px;
+    }
+
+    .cart-summary {
+      flex: 1;
+      min-width: 320px;
+    }
+
+    .cart-item {
+      background: rgba(30, 30, 50, 0.9);
+      border: 1px solid rgba(124, 58, 237, 0.3);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .cart-item img {
+      width: 90px;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-item-info h3 {
+      margin: 0 0 8px 0;
+      font-size: 18px;
+    }
+
+    .cart-item-info p {
+      margin: 0;
+      color: #a5b4fc;
+      font-size: 15px;
+    }
+
+    .cart-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(0,0,0,0.4);
+      padding: 8px 14px;
+      border-radius: 12px;
+    }
+
+    .qty-btn {
+      width: 42px;
+      height: 42px;
+      border: none;
+      background: #6d28d9;
+      color: white;
+      font-size: 22px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .delete-btn {
+      width: 42px;
+      height: 42px;
+      border: none;
+      background: #ef4444;
+      color: white;
+      font-size: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .summary-box {
+      background: rgba(30, 30, 50, 0.9);
+      border: 1px solid rgba(124, 58, 237, 0.4);
+      border-radius: 16px;
+      padding: 30px;
+      position: sticky;
+      top: 30px;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      padding: 16px;
+      margin-top: 25px;
+      background: linear-gradient(90deg, #7c3aed, #a855f7);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .empty-cart-container {
+      text-align: center;
+      padding: 100px 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <div class="logo" onclick="back()">⚡ NERD STORE</div>
+      <button onclick="back()" class="action-btn">Seguir comprando</button>
+    </div>
+  </header>
+
+  <div class="cart-page">
+    <h1 style="text-align: center; margin-bottom: 30px;">Mi Carrito</h1>
+
+    <!-- Productos del carrito -->
+    <div id="cartContent" class="cart-content" style="display: none;">
+      <div id="items" class="cart-items"></div>
+
+      <div class="cart-summary">
+        <div class="summary-box">
+          <h2>Resumen de compra</h2>
+          <div style="font-size: 28px; margin: 25px 0; font-weight: bold;">
+            Total: <span id="total">$0</span>
+          </div>
+          <button onclick="iniciarCompra()" class="checkout-btn">Iniciar compra</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carrito vacío -->
+    <div id="emptyCart" class="empty-cart-container" style="display: none;">
+      <div style="font-size: 120px; margin-bottom: 30px; opacity: 0.7;">🛒</div>
+      <h2>¡Tu carrito está vacío!</h2>
+      <p style="font-size: 18px; color: #a5b4fc; margin-bottom: 40px;">Cuando agregues productos, podrás verlos aquí.</p>
+      <button onclick="back()" style="background: linear-gradient(90deg, #7c3aed, #a855f7); color: white; border: none; padding: 16px 40px; font-size: 18px; border-radius: 12px; cursor: pointer;">
+        Ver productos
+      </button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/toast.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>

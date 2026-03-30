@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle - NERD STORE</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .detail-container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+      display: flex;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+    .detail-image {
+      flex: 1;
+      min-width: 400px;
+    }
+    .detail-image img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(124, 58, 237, 0.4);
+    }
+    .detail-info {
+      flex: 1;
+      min-width: 400px;
+    }
+    .detail-info h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    .detail-info .price {
+      font-size: 36px;
+      color: #7c3aed;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+    .specs {
+      background: rgba(17,17,17,0.8);
+      padding: 20px;
+      border-radius: 12px;
+      margin: 25px 0;
+    }
+    .specs table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .specs td {
+      padding: 12px 0;
+      border-bottom: 1px solid #333;
+    }
+    .action-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    .whatsapp-btn {
+      background: #25D366;
+      color: white;
+      padding: 16px 30px;
+      border: none;
+      border-radius: 12px;
+      font-size: 18px;
+      cursor: pointer;
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-top">
+      <div class="logo" onclick="window.location.href='index.html'">⚡ NERD STORE</div>
+      <div class="search-container">
+        <input type="text" id="search" placeholder="Buscar productos..." class="search-input">
+      </div>
+      <div class="header-icons">
+        <button onclick="goToLogin()" class="icon-btn">👤</button>
+        <button onclick="goCart()" class="icon-btn cart-icon">
+          🛒 <span id="count" class="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="detail-container">
+    <div class="detail-image">
+      <img id="productImage" src="" alt="">
+    </div>
+
+    <div class="detail-info">
+      <h1 id="productName"></h1>
+      <p class="price" id="productPrice"></p>
+      <p id="productDesc"></p>
+
+      <div class="specs">
+        <h3>Especificaciones técnicas</h3>
+        <table id="specsTable"></table>
+      </div>
+
+      <div class="action-buttons">
+        <button onclick="addToCartFromDetail()" class="action-btn" style="flex:1; padding:16px;">
+          Agregar al carrito
+        </button>
+        <button onclick="contactWhatsApp()" class="whatsapp-btn">
+          Consultar por WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="js/toast.js"></script>
+
+  <script>
+    function loadProduct() {
+      const params = new URLSearchParams(window.location.search);
+      const id = parseInt(params.get("id"));
+
+      if (!id) {
+        window.location.href = "index.html";
+        return;
+      }
+
+      const product = products.find(p => p.id === id);
+      if (!product) {
+        window.location.href = "index.html";
+        return;
+      }
+
+      document.getElementById("productImage").src = product.img;
+      document.getElementById("productName").textContent = product.name;
+      document.getElementById("productPrice").textContent = `$${product.price}`;
+      document.getElementById("productDesc").textContent = product.desc || "Producto de alta calidad para gamers y profesionales.";
+
+      // Tabla de especificaciones (puedes personalizar por producto después)
+      const specsHTML = `
+        <tr><td><strong>Procesador</strong></td><td>${product.name.includes("Ryzen") ? "AMD Ryzen" : "Intel Core"}</td></tr>
+        <tr><td><strong>Gráfica</strong></td><td>${product.name.includes("RTX") ? "NVIDIA GeForce" : "Integrada"}</td></tr>
+        <tr><td><strong>Memoria</strong></td><td>16GB DDR4</td></tr>
+        <tr><td><strong>Almacenamiento</strong></td><td>1TB SSD NVMe</td></tr>
+      `;
+      document.getElementById("specsTable").innerHTML = specsHTML;
+    }
+
+    function addToCartFromDetail() {
+      const params = new URLSearchParams(window.location.search);
+      const id = parseInt(params.get("id"));
+      if (id) addToCart(id);
+    }
+
+    function contactWhatsApp() {
+  const params = new URLSearchParams(window.location.search);
+  const id = parseInt(params.get("id"));
+  const product = products.find(p => p.id === id);
+  
+  const message = `Hola! Me interesa el producto *${product ? product.name : 'de Nerd Store'}*. ¿Me podés dar más información?`;
+  
+  window.open(`https://wa.me/5493705281786?text=${encodeURIComponent(message)}`, '_blank');
+}
+
+    // Cargar el producto al abrir la página
+    document.addEventListener("DOMContentLoaded", loadProduct);
+  </script>
+</body>
+</html>
