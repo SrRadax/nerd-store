@@ -8,81 +8,81 @@ const products = [
     id: 1, 
     name: "PC Gamer RTX 4070", 
     desc: "PC de alta gama diseñado para gaming en 1440p y 4K con excelentes FPS. Ideal para streamers y gamers exigentes.", 
-    price: 1899, 
+    price: 4750000, 
     cat: "gamer", 
-    img: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=600" 
+    img: "https://sipoonline.cl/wp-content/uploads/2024/05/Pc_atlantis_nueva.png" 
   },
   { 
     id: 2, 
     name: "PC Gamer Ryzen 5 5500 + RTX 3050", 
     desc: "La mejor opción para quienes recién empiezan en el mundo del gaming. Excelente relación calidad-precio.", 
-    price: 999, 
+    price: 2700000, 
     cat: "gamer", 
-    img: "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=600" 
+    img: "https://http2.mlstatic.com/D_NQ_NP_706908-MLA107585982899_022026-O.webp" 
   },
   { 
     id: 3, 
     name: "PC Gamer RTX 4060 Ti", 
     desc: "Rendimiento excepcional en 1440p con Ray Tracing y DLSS. Perfecto para juegos actuales y futuros.", 
-    price: 1399, 
+    price: 4500600, 
     cat: "gamer", 
-    img: "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=600" 
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHCmpNzRA7P-jz8qjtbhWHWP2Q8FQLEyAWYg&s" 
   },
   { 
     id: 4, 
     name: "PC Gamer Ryzen 7 5700X + RTX 4070", 
     desc: "Configuración profesional para streaming, edición de video y gaming AAA al máximo nivel.", 
-    price: 2199, 
+    price: 5000000, 
     cat: "gamer", 
-    img: "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=600" 
+    img: "https://http2.mlstatic.com/D_Q_NP_2X_874553-MLA99979667177_112025-T.webp" 
   },
   { 
     id: 5, 
     name: "Laptop Gamer RTX 4050", 
     desc: "Portátil gaming potente con pantalla 144Hz. Ideal para llevar tu setup a cualquier lado.", 
-    price: 1499, 
+    price: 4209000, 
     cat: "gamer", 
-    img: "https://images.unsplash.com/photo-1603302576837-37561b2e2308?w=600" 
+    img: "https://fullh4rd.com.ar/img/productos/32/notebook-gamer-msi-156-thin-15-b13ve-i513420h-16gb-512gb-geforce-rtx-4050-fhd-144hz-w11h-2.jpg" 
   },
   { 
     id: 6, 
     name: "PC Oficina Ryzen 5", 
     desc: "Equipo rápido y eficiente para trabajo, estudio y multitarea diaria. Muy silencioso.", 
-    price: 679, 
+    price: 679000, 
     cat: "oficina", 
-    img: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=600" 
+    img: "https://compucordoba.com.ar/img/Public/1078-producto-pc-r5-06-23-1895.jpg" 
   },
   { 
     id: 7, 
     name: "PC Oficina Intel i5", 
     desc: "Ideal para oficinas, estudiantes y uso profesional. Gran rendimiento en aplicaciones diarias.", 
-    price: 749, 
+    price: 749000, 
     cat: "oficina", 
-    img: "https://images.unsplash.com/photo-1588872657578-2f8e3e3b7f0f?w=600" 
+    img: "https://gztienda.com.ar/img/Public/1116-producto-221-08-03-2023-05-03-34-img-oficina-5372.jpg" 
   },
   { 
     id: 8, 
     name: "RTX 4060 8GB", 
     desc: "Placa de video potente y eficiente. Excelente para upgrades y gaming en 1080p/1440p.", 
-    price: 449, 
+    price: 2500200, 
     cat: "componentes", 
-    img: "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?w=600" 
+    img: "https://http2.mlstatic.com/D_672763-MLA99963195417_112025-C.jpg" 
   },
   { 
     id: 9, 
     name: "Monitor Gamer 27\" 180Hz", 
     desc: "Monitor IPS de alta frecuencia de actualización. Colores vibrantes y respuesta ultra rápida.", 
-    price: 329, 
+    price: 329000, 
     cat: "componentes", 
-    img: "https://images.unsplash.com/photo-1616763355548-1b9f8c3f4d6f?w=600" 
+    img: "https://fullh4rd.com.ar/img/productos/18/monitor-gamer-27-gamemax-gmx27f180-ips-180hz-fhd-hdmi-dp-0.jpg" 
   },
   { 
     id: 10, 
     name: "Ryzen 5 5600X", 
     desc: "Procesador de 6 núcleos y 12 hilos. Gran opción para gaming y productividad.", 
-    price: 399, 
+    price: 399000, 
     cat: "componentes", 
-    img: "https://images.unsplash.com/photo-1591799264318-7e6ef8b0f0e6?w=600" 
+    img: "https://www.maximus.com.ar/Temp/App_WebSite/App_PictureFiles/Items/100-100000931BOX_600.jpg" 
   }
 ];
 
